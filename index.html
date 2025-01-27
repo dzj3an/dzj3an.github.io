@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J3AN | DEV</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #020202, #125ac5);
+            color: #fff;
+        }
+
+        /* Barra de navegación minimalista */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #87CEEB;
+            text-decoration: none;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Encabezado principal */
+        .hero-section {
+            text-align: center;
+            padding: 120px 20px 40px 20px;
+        }
+
+        .hero-title {
+            font-size: 2.8em;
+            margin: 0;
+            animation: fadeIn 1s ease-out;
+            letter-spacing: 1px;
+        }
+
+        .hero-text {
+            font-size: 1.3em;
+            max-width: 600px;
+            margin: 20px auto;
+            color: #e0e0e0;
+        }
+
+        /* Botones de contacto */
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            color: #87CEEB;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sección de proyectos */
+        .project-section {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .project {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 20px;
+        }
+
+        .project h3 {
+            font-size: 1.8em;
+            color: #87CEEB;
+            margin: 0 0 10px 0;
+            position: relative;
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+        .project h3::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            animation: drawBorder 3s linear infinite;
+        }
+
+        @keyframes drawBorder {
+            0% {
+                clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+                border-color: #87CEEB;
+            }
+            25% {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 100%);
+                border-color: #87CEEB;
+            }
+            50% {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                border-color: #87CEEB;
+            }
+            75% {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                border-color: #87CEEB;
+            }
+            100% {
+                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+                border-color: #87CEEB;
+            }
+        }
+
+        .project p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            margin: 0 0 20px 0;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .project-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            color: #87CEEB;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            display: inline-block;
+        }
+
+        .project-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Encabezado hero -->
+    <section class="hero-section">
+        <h1 class="hero-title">I'm J3an</h1>
+        <p class="hero-text">
+            Python developer with bot experience for Telegram, automation and custom solutions. 
+            Self-taught, always ready to collaborate on projects, whether they are Open Source or not. 
+            Write me on Telegram for a quick response.
+        </p>
+        
+        <!-- Botones de contacto -->
+        <div id="contact-buttons" class="contact-buttons">
+            <a href="mailto:j3an.contact@gmail.com" class="contact-btn">📧 Mail</a>
+            <a href="https://github.com/dzj3an" target="_blank" class="contact-btn">💻 GitHub</a>
+            <a href="https://t.me/dzj3an" target="_blank" class="contact-btn">📱 Telegram Account</a>
+            <a href="https://t.me/j3d3v" target="_blank" class="contact-btn">📢 Telegram Channel</a>
+        </div>
+    </section>
+
+    <!-- Sección de proyectos -->
+    <section class="project-section">
+        <!-- Proyecto: iAstro Network -->
+        <div class="project">
+            <h3>iAstro Network</h3>
+            <p>
+                iAstro Network is a dynamic programming company that specializes in providing innovative digital solutions and services.
+            </p>
+            <a href="https://t.me/iAstroNetwork" target="_blank" class="project-btn">Visitar iAstro Network</a>
+        </div>
+
+        <!-- Proyecto: iAstro Shop -->
+        <div class="project">
+            <h3>iAstro Shop</h3>
+            <p>
+                Digital Store, Digital Gift Cards, Games, Mobile Recharges and e-pins.
+            </p>
+            <a href="https://t.me/iAstroShop" target="_blank" class="project-btn">Visitar iAstro Shop</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 J3an - Innovando con código y creatividad</p>
+    </footer>
+</body>
+</html>
