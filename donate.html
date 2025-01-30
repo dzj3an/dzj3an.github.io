@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Me | J3AN</title>
+    <link rel="icon" type="image/png" href="images/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #020202, #730794);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .navbar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            z-index: 1000;
+        }
+        .donate-button {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 10px 15px;
+            color: #87CEEB;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .donate-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .donate-button img {
+            width: 20px;
+            margin-right: 8px;
+        }
+        .container {
+            padding: 50px 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #ddd;
+        }
+        .wallet {
+            margin: 20px auto;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .wallet strong {
+            color: #87CEEB;
+            font-weight: bold;
+        }
+        .qr-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 8px 12px;
+            color: #87CEEB;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .qr-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            color: #87CEEB;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .modal-content canvas {
+            margin-bottom: 20px; /* Espacio entre el QR y el botón */
+        }
+        .close-button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            padding: 8px 12px;
+            color: #87CEEB;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you like what I do? Buy me a coffee!</h1>
+        <p>If you'd like to support my work and help me keep creating, here are my wallet addresses. Every contribution, no matter how small, fuels my creativity and helps me keep going!</p>
+        
+        <!-- TON Wallet -->
+        <div class="wallet">
+            <div>
+                <strong>TON:</strong> UQAWvr1LiEQQ6Z8c9mzEtd8pClsZ_6sKUC1oZIbusiAzR_YF
+            </div>
+            <button class="qr-button" onclick="showQR('UQAWvr1LiEQQ6Z8c9mzEtd8pClsZ_6sKUC1oZIbusiAzR_YF')">Show QR</button>
+        </div>
+
+        <!-- TRX Wallet -->
+        <div class="wallet">
+            <div>
+                <strong>TRX:</strong> TQQ5fMYoGUwNR5kqGH75YkR8Qm7G5LteLk
+            </div>
+            <button class="qr-button" onclick="showQR('TQQ5fMYoGUwNR5kqGH75YkR8Qm7G5LteLk')">Show QR</button>
+        </div>
+
+        <!-- USDT - BSC20 Wallet -->
+        <div class="wallet">
+            <div>
+                <strong>USDT - BSC20:</strong> 0x044448122166cea2800f288608d9f962d52a33aa
+            </div>
+            <button class="qr-button" onclick="showQR('0x044448122166cea2800f288608d9f962d52a33aa')">Show QR</button>
+        </div>
+
+        <!-- USDT - TRC20 Wallet -->
+        <div class="wallet">
+            <div>
+                <strong>USDT - TRC20:</strong> TYkBkV8qvPMgDm1pxbfNFkPfyQ1rZnRVeU
+            </div>
+            <button class="qr-button" onclick="showQR('TYkBkV8qvPMgDm1pxbfNFkPfyQ1rZnRVeU')">Show QR</button>
+        </div>
+        
+        <a href="index.html" class="back-button">Back to Home</a>
+    </div>
+
+    <!-- Modal para mostrar el QR -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <canvas id="qr-canvas"></canvas>
+            <button class="close-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar el QR en un modal
+        function showQR(address) {
+            const modal = document.getElementById('qr-modal');
+            const canvas = document.getElementById('qr-canvas');
+
+            // Limpiar el canvas antes de generar un nuevo QR
+            canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+
+            // Generar el código QR
+            QRCode.toCanvas(canvas, address, {
+                width: 200,
+                margin: 1,
+                color: {
+                    dark: '#87CEEB', // Color del código QR
+                    light: '#00000000' // Fondo transparente
+                }
+            }, function (error) {
+                if (error) console.error(error);
+            });
+
+            // Mostrar el modal
+            modal.style.display = 'flex';
+        }
+
+        // Función para cerrar el modal
+        function closeModal() {
+            const modal = document.getElementById('qr-modal');
+            modal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
